@@ -9,31 +9,48 @@ body {
 }
 
 h1 {
-    margin: 30px;
-    padding-bottom: 20px;
-    font-size: 60px;
-    text-align: center;
-    color: #333;
-    border-bottom: solid orchid;
+  margin: 30px;
+  padding-bottom: 20px;
+  font-size: 60px;
+  text-align: center;
+  color: #333;
+  border-bottom: solid orchid;
 }
 
 main {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center; 
+}
+
+.start-button {
+  display: flex;
+  justify-content: center;
+}
+
+.wrongRight {
+  display: flex;
+  justify-content: center;
 }
 
 button {
-    font-size: 25px;
-    font-weight: 600;
-    border-radius: 8px;
-    padding: 10px;
-    margin: 30px;
-    background-color: orchid;
-    color: #333;
+  font-size: 25px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 30px;
+  background-color: orchid;
+  color: #333;
 }
 
 button:hover {
-    background-color: rgb(255, 139, 251);
+  background-color: rgb(255, 139, 251);
+}
+
+input {
+  font-size: 25px;
+  border-radius: 8px;
+  margin: 30px;
+  padding: 10px;
 }
 
 h3 {
