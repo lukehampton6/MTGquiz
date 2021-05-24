@@ -12,7 +12,7 @@ var questions = [
 
   {
     question: "What is your starting life total?",
-    answers: ["Ten", "Fiftey", "Twenty", "Fifteen"],
+    answers: ["Ten", "Fifty", "Twenty", "Fifteen"],
     correctAnswer: 2,
   },
 
@@ -25,6 +25,34 @@ var questions = [
       "During your opponents turn",
     ],
     correctAnswer: 1,
+  },
+
+  {
+    question: "What is the correct sequence of phases?",
+    answers: [
+      "Draw, Main, Combat, End",
+      "Upkeep, Untap, Main 1, Combat, Main 2, End",
+      "Draw, Upkeep, Combat, Main, End",
+      "Untap, Upkeep, Draw, Main 1, Combat, Main 2, End",
+    ],
+    correctAnswer: 3,
+  },
+
+  {
+    question: "How many colors are there?",
+    answers: ["Four", "Five", "Three", "Ten"],
+    correctAnswer: 1,
+  },
+
+  {
+    question: "Which of these formats is not real?",
+    answers: [
+      "Modern",
+      "Commander",
+      "New Age",
+      "Pauper",
+    ],
+    correctAnswer: 2,
   },
 ];
 
@@ -109,16 +137,16 @@ function enterScore() {
   enterBtn.click(function () {
     var initials = $("input").val();
     var currentHighScore = {
-        name: initials,
-        score: time
+      name: initials,
+      score: time,
     };
 
     //sort high scores and remove any below top 5, idea from james quick
     highScores.push(currentHighScore);
-    highScores.sort( (a,b) => b.score - a.score);
+    highScores.sort((a, b) => b.score - a.score);
     highScores.splice(5);
 
-    localStorage.setItem('highScores', JSON.stringify(highScores));
+    localStorage.setItem("highScores", JSON.stringify(highScores));
 
     $(".wrongRight").empty();
     $("main").empty();
@@ -128,10 +156,15 @@ function enterScore() {
 
 function displayHighScores() {
   $("main").append("<ul></ul>");
-  
-  var newScores = highScores.map(highScores => {
-      return highScores.name && highScores.score;
-  })
-  
+
+  //var newScores = highScores.map(highScores => {
+  //return highScores.name && highScores.score;
+  //})
+  for (i = 0; i < highScores.length; i++) {
+    var nameLi = $("<li>").text(highScores[i]);
+    $("ul").append(nameLi);
+  }
+  $(".wrongRight").append("<p>i dont know how to fix this :(</p>");
+
   $("#startBtn").show();
 }
