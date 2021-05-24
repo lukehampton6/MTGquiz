@@ -2,7 +2,6 @@ var time = 60;
 var currentQuestionIndex = 0;
 var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 var maxHighScores = 5;
-console.log(highScores);
 var questions = [
   {
     question: "How many lands can you play per turn?",
@@ -154,17 +153,15 @@ function enterScore() {
   });
 }
 
+//show high scores
 function displayHighScores() {
   $("main").append("<ul></ul>");
 
-  //var newScores = highScores.map(highScores => {
-  //return highScores.name && highScores.score;
-  //})
   for (i = 0; i < highScores.length; i++) {
     var nameLi = $("<li>").text(highScores[i]);
     $("ul").append(nameLi);
   }
-  $(".wrongRight").append("<p>i dont know how to fix this :(</p>");
-
+  $(".wrongRight").append("<p>i dont know how to fix this :( check console for  top 5 scores</p>");
+  console.log(highScores);
   $("#startBtn").show();
 }
