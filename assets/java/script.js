@@ -45,12 +45,7 @@ var questions = [
 
   {
     question: "Which of these formats is not real?",
-    answers: [
-      "Modern",
-      "Commander",
-      "New Age",
-      "Pauper",
-    ],
+    answers: ["Modern", "Commander", "New Age", "Pauper"],
     correctAnswer: 2,
   },
 ];
@@ -158,10 +153,11 @@ function displayHighScores() {
   $("main").append("<ul></ul>");
 
   for (i = 0; i < highScores.length; i++) {
-    var nameLi = $("<li>").text(highScores[i]);
+    var nameLi = $("<li>").text(
+      highScores[i].name + ": " + highScores[i].score
+    );
     $("ul").append(nameLi);
   }
-  $(".wrongRight").append("<p>i dont know how to fix this :( check console for  top 5 scores</p>");
-  console.log(highScores);
+
   $("#startBtn").show();
 }
